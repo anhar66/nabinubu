@@ -1,0 +1,248 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-bjt-background text-bjt-textPrimary font-sans;
+    -webkit-tap-highlight-color: transparent;
+  }
+  html {
+    @apply text-bjt-text;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold text-bjt-textPrimary;
+  }
+  h1 {
+    @apply text-bjt-title;
+  }
+  p {
+    @apply text-bjt-text;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+@layer utilities {
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@layer components {
+  .bjt-card {
+    @apply bg-gradient-to-br from-bjt-cardBg to-bjt-cardBgLight rounded-bjt p-4 shadow-card-premium border border-white/5 backdrop-blur-sm;
+  }
+
+  .bjt-card-premium {
+    @apply bg-gradient-to-br from-bjt-cardBg to-bjt-cardBgLight rounded-bjt p-5 shadow-premium border border-bjt-secondary/10 backdrop-blur-sm;
+  }
+
+  .bjt-input {
+    @apply h-12 rounded-bjt border border-bjt-inactive/50 px-4 py-2 focus:border-bjt-secondary focus:outline-none focus:ring-1 focus:ring-bjt-secondary/50 transition-all duration-200 shadow-sm;
+  }
+
+  .bjt-input-premium {
+    @apply h-[50px] rounded-bjt bg-bjt-cardBg/90 text-white px-4 py-2 focus:ring-2 focus:ring-bjt-secondary/70 focus:outline-none border border-bjt-secondary/20 shadow-inner;
+  }
+
+  .bjt-input-group {
+    @apply relative;
+  }
+
+  .bjt-input-group .bjt-input {
+    @apply pl-10;
+  }
+
+  .bjt-input-group-icon {
+    @apply absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-bjt-secondary/70;
+  }
+
+  .bjt-btn {
+    @apply min-h-bjt-touch rounded-bjt px-4 py-2 font-medium transition-all duration-200 active:animate-tap shadow-premium border border-transparent;
+  }
+
+  .bjt-btn-primary {
+    @apply bjt-btn bg-gradient-to-r from-bjt-primary to-bjt-primaryLight text-white hover:from-bjt-primaryLight hover:to-bjt-primary hover:shadow-premium-hover active:bg-bjt-secondary shadow-button-premium border-bjt-secondary/20;
+  }
+
+  .bjt-btn-secondary {
+    @apply bjt-btn bg-gradient-to-r from-bjt-secondary to-bjt-secondaryLight text-bjt-primary hover:from-bjt-secondaryLight hover:to-bjt-secondary hover:shadow-premium-hover border-bjt-secondaryDark/20;
+  }
+
+  .bjt-btn-ghost {
+    @apply bjt-btn bg-white/5 backdrop-blur-sm text-bjt-textSecondary hover:text-bjt-secondary hover:bg-white/10 border-bjt-inactive/30;
+  }
+
+  .bjt-btn-success {
+    @apply bjt-btn bg-gradient-to-r from-bjt-success to-green-400 text-white hover:from-green-400 hover:to-bjt-success hover:shadow-premium-hover border-green-600/20;
+  }
+
+  .bjt-btn-error {
+    @apply bjt-btn bg-gradient-to-r from-red-500 to-bjt-error text-white hover:from-bjt-error hover:to-red-500 hover:shadow-premium-hover border-red-600/20;
+  }
+
+  .bjt-tab {
+    @apply min-h-bjt-touch rounded-bjt px-4 py-2 text-bjt-textSecondary transition-colors duration-200;
+  }
+
+  .bjt-tab-active {
+    @apply bg-bjt-primary text-white;
+  }
+
+  .bjt-info-card {
+    @apply rounded-bjt p-3 text-sm;
+  }
+
+  .bjt-info-card-success {
+    @apply bjt-info-card bg-bjt-success text-green-800;
+  }
+
+  .bjt-info-card-error {
+    @apply bjt-info-card bg-bjt-error text-red-800;
+  }
+
+  .bjt-info-card-info {
+    @apply bjt-info-card bg-bjt-secondary text-bjt-primary shadow-card-premium;
+  }
+
+  .bjt-dropdown {
+    @apply transition-all duration-200 ease-in-out animate-fade-in;
+  }
+
+  .bjt-bottom-nav {
+    @apply fixed bottom-0 left-0 right-0 flex h-16 w-full items-center justify-around bg-white shadow-nav-premium;
+  }
+
+  .bjt-bottom-nav-item {
+    @apply flex flex-col items-center justify-center text-bjt-small text-bjt-inactive;
+  }
+
+  .bjt-bottom-nav-item-active {
+    @apply text-bjt-primary;
+  }
+
+  .bjt-header {
+    @apply flex h-16 items-center justify-between bg-white px-4 shadow-card-premium;
+  }
+
+  .bjt-premium-gradient {
+    @apply bg-gradient-to-b from-bjt-primary to-bjt-background;
+  }
+
+  .bjt-premium-card {
+    @apply bg-bjt-cardBg rounded-bjt p-5 shadow-card-premium border-none;
+  }
+
+  .bjt-premium-input {
+    @apply h-12 rounded-bjt bg-bjt-cardBg text-white px-4 py-2 border border-transparent focus:border-bjt-secondary focus:outline-none focus:ring-1 focus:ring-bjt-secondary transition-all duration-200;
+  }
+
+  .bjt-premium-btn {
+    @apply min-h-bjt-touch rounded-bjt px-4 py-2 font-medium transition-all duration-200 active:animate-tap shadow-button-premium w-[90%] mx-auto block h-12 bg-bjt-primary text-white hover:bg-bjt-primaryLight hover:shadow-premium-hover active:bg-bjt-secondary;
+  }
+
+  .bjt-premium-dropdown {
+    @apply bg-bjt-cardBg text-white border border-bjt-inactive rounded-bjt shadow-card-premium animate-fade-in;
+  }
+
+  .bjt-premium-tab {
+    @apply min-h-bjt-touch rounded-bjt px-4 py-2 text-bjt-textSecondary transition-colors duration-200 bg-bjt-cardBg text-white hover:bg-opacity-90;
+  }
+
+  .bjt-premium-tab-active {
+    @apply bg-bjt-primary text-white;
+  }
+
+  .bjt-premium-card {
+    @apply border-none shadow-premium hover:shadow-premium-hover transition-shadow duration-300;
+  }
+
+  .bjt-premium-logo {
+    @apply shadow-premium border-2 border-bjt-secondary/20;
+  }
+}

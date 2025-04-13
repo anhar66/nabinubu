@@ -1,0 +1,15 @@
+{
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
+  "images": {
+    "sizes": [256, 512, 1024],
+    "domains": ["localhost"],
+    "remotePatterns": [
+      {
+        "protocol": "https",
+        "hostname": "**"
+      }
+    ]
+  }
+}
